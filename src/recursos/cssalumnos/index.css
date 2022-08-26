@@ -1,0 +1,49 @@
+*
+{
+  margin:  0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+#new
+{
+ color:#fff;    
+ font-weight: bolder;
+}
+
+#flex
+{
+  margin-top: 2rem;
+  width: 400px;
+  padding: 30px;
+  margin: auto;
+  margin-top: 60px;
+  border-radius: 6px;
+  font-family: Helvetica;
+  color: white;
+  background-color: #0b1e30
+}
+
+.forms-control
+{
+  width: 100%;
+  background: #20303c;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #1f531f;
+  font-size:14px;
+  color: white;
+}
+
+.btn-Sesion 
+{
+  width: 30%;
+  background:#0e4c75;
+  border: none;
+  border-radius: 4px;
+  padding: 2px;
+  color: white;
+  margin-left: 7.5rem;
+}

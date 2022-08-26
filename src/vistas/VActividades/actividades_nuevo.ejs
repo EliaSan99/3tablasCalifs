@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--flatpicker Selector de Fechas-->
+    <link rel="stylesheet" href="../../../dist/flatpickr.min.css">
+    <title>Registro de Actividades</title>
+    <link rel="stylesheet" href="../../cssgeneral/bootstrap.min.css">
+    <link rel="stylesheet" href="../../cssactividades/actividades_nuevo.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <nav class="navbar  navbar-expand-lg navbar-dark mb-2">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="../../imgs/uni.png" width="35" height="35" class="mx-2">
+                        Nuevo registro
+                    </a>
+
+                    <div class="collapse navbar-collapse" id="navbarColor01">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Home
+                                    <span class="visually-hidden">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Alumnos">Alumnos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Actividades">Actividades</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Criterios">Criterios</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="session-box">
+                        <img src="../../imgs/user.svg" width="40px" height="40px" alt="">
+                        <% if(usuario) { %>
+
+                            <div>
+                                <h5>Usuario:<%= usuario%>
+                                </h5>
+                                <% } %>
+                                    <form action="/session/cerrar" method="post">
+                                        <small><input type="submit" value="Cerrar Sesión"></small>
+
+                                    </form>
+                            </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <h4 class="text-center m-3">Agrega una nueva actividad</h4>
+    <div class="wrapper">
+        <p><a id="p2" class="btn btn-secondary" href="/">Ir a vista principal</a></p>
+    </div>
+
+    <div class="formulario">
+        <div class="row">
+            <div class="col col">
+                <form action="/actividades/agregar" method="post">
+                    <label for="inputDescripcion">Descripción</label>
+                    <input type="text" class="forms-control" name="tfDescripcion" id="inputDescripcion" placeholder="Nombre de la actividad">
+                    <label for="inputLimite">Fecha de Entrega</label>
+                    <input type="datetime-local" class="forms-control" name="tfFechaLimite" id="inputLimite" placeholder="Selecciona una fecha">
+                    <label for="inputEntregado">Entregado</label>
+                    <input type="datetime-local" class="forms-control" name="tfFechaEntregado" id="inputEntregado" placeholder="Selecciona una fecha">
+                    <label for="inputCali">Calificación</label>
+                    <input type="number" class="forms-control" name="tfCalificacion" id="inputCali">
+                    <label for="inputMatricula">Matricula del alumno</label>
+                    <input type="text" class="forms-control" name="tfMatricula" id="inputMatricula" placeholder="Ej:57201000168">
+                    <label for="inputId"> Id del Tipo de Actividad</label>
+                    <input type="number" class="forms-control" name="tfIdTipoActv" id="inputId" Placeholder="Ej: 01">
+
+
+                    <button type="submit" name="accion" value="agregar" class="btn-agregar">Agregar</button>
+
+                    <a class="btn btn-secondary" href="/actividades">Regresar</a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!--flatpicker Selector de Fechas-->
+    <script src="../../../dist/flatpickr.min.js"></script>
+    <script src="../../../dist/l10n/es.js"></script>
+    <script>
+
+        config = {
+                    enableTime: true,
+                    dateFormat: "Y-m-d H:i",
+                    locale: 'es'
+                 }
+        flatpickr("input[type=datetime-local]", config);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Actividades</title>
+    <link rel="stylesheet" href="../../cssgeneral/bootstrap.min.css">
+    <link rel="stylesheet" href="../../cssactividades/actividades.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <nav class="navbar  navbar-expand-lg navbar-dark mb-2">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="../../imgs/uni.png" width="35" height="35" class="mx-2">
+                        Interfaz Actividades
+                    </a>
+
+                    <div class="collapse navbar-collapse" id="navbarColor01">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Home
+                                    <span class="visually-hidden">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Alumnos">Alumnos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Actividades">Actividades</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Criterios">Criterios</a>
+                            </li>
+                        </ul>
+                    </div>
+                     <div id="session-box">
+                          <img src="../../imgs/user.svg" width="40px" height="40px" alt="">
+                          <% if(usuario) { %>
+
+                            <div>
+                                <h5>Usuario:<%= usuario%></h5>
+                                <% } %>
+                                    <form action="/session/cerrar" method="post">
+                                        <small><input type="submit" value="Cerrar Sesión"></small>
+
+                                    </form>
+                            </div>
+                      </div>
+               </div>
+          </nav>
+        </div>
+    </div>
+
+    <h4 class="text-center">Vista Actividades</h4>
+    <div class="wrapper">
+        <p><a id="p1" class="btn btn-secondary" href="/actividades/nuevo">Nuevo Registro</a></p>
+        <p><a id="p2" class="btn btn-secondary" href="/">Ir a vista principal</a></p>
+
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto m-1">
+                <table class="table table-bordered table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Descripción</th>
+                            <th>Fecha Vencimiento</th>
+                            <th>Entregado</th>
+                            <th>Calificacion</th>
+                            <th>Asignado a:</th>
+                            <th>Tipo de actividad</th>
+                            <th colspan="2">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<data.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <%=data[i].Id_Actv%>
+                                </td>
+                                <td>
+                                    <%=data[i].Descripción%>
+                                </td>
+                                <td>
+                                    <%=data[i].Limite%>
+                                </td>
+                                <td>
+                                    <%=data[i].Entregado%>
+                                </td>
+                                <td>
+                                    <%=data[i].Calificación%>
+                                </td>
+                                <td>
+                                    <%=data[i].Alumno%>
+                                </td>
+                                <td>
+                                    <%=data[i].Tipo_Actv%>
+                                </td>
+
+                                <td><a class="btn btn-warning" href="/actividades/editar/<%=data[i].Id_Actv%>">Editar</a></td>
+                                <td><a class="btn btn-danger" href="/actividades/eliminar/<%=data[i].Id_Actv%>">Eliminar</a></td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

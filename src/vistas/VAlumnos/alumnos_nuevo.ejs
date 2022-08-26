@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Alumnos</title>
+    <link rel="stylesheet" href="../../cssgeneral/bootstrap.min.css">
+    <link rel="stylesheet" href="../../cssalumnos/alumnos_nuevo.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <nav class="navbar  navbar-expand-lg navbar-dark mb-2">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="../../imgs/uni.png" width="35" height="35" class="mx-2">
+                        Nuevo registro
+                    </a>
+
+                    <div class="collapse navbar-collapse" id="navbarColor01">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Home
+                                    <span class="visually-hidden">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Alumnos">Alumnos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Actividades">Actividades</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Criterios">Criterios</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="session-box">
+                        <img src="../../imgs/user.svg" width="40px" height="40px" alt="">
+                        <% if(usuario) { %>
+
+                        <div>
+                            <h5>Usuario:<%= usuario%></h5>
+                            <% } %>
+                                <form action="/session/cerrar" method="post">
+                                    <small><input type="submit" value="Cerrar Sesión"></small>
+
+                                </form>
+                        </div>
+                    </div>
+               </div>
+            </nav>
+        </div>
+    </div>
+
+    <h4 class="text-center m-3">Nuevo Alumno</h4>
+    <div class="wrapper">
+        <p><a id="p2" class="btn btn-secondary" href="/">Ir a vista principal</a></p>
+    </div>
+
+    <div class="formulario">
+        <div class="row">
+            <div class="col col">
+                <form action="/alumnos/agregar" method="post">
+                        <label for="inputMatri">Matricula</label>
+                        <input type="text"   class="forms-control" name="tfMatricula" id="inputMatri"> 
+                        <label for="inputName">Nombre del alumno</label>
+                        <input type="text"   class="forms-control" name="tfNombre" id="inputName">
+                        <label for="inputPaterno">A. Paterno</label>
+                        <input type="text"   class="forms-control" name="tfPaterno" id="inputPaterno">
+                        <label for="inputMaterno">A. Materno</label>
+                        <input type="text" class="forms-control" name="tfMaterno" id="inputMaterno"> 
+                        <label for="inputSexo">Sexo</label>
+                        <input type="text" class="forms-control" name="tfSexo" id="inputSexo" placeholder="Ejemplo: F o M">
+                        <label for="inputTelefono">Telefono</label>
+                        <input type="text" class="forms-control" name="tfTelefono" id="inputTelefono">
+                        <label for="inputCarrera">Carrera</label>
+                        <input type="text" class="forms-control" name="tfCarrera" id="inputCarrera">
+                        <label for="inputMcpio">Mcpio</label>
+                        <input type="text" class="forms-control" name="tfMcpio" id="inputMcpio">
+                        <label for="inputCalle">Calle</label>
+                        <input type="text" class="forms-control" name="tfCalle" id="inputCalle">
+                        <label for="inputNumext">Numero Exterior</label>
+                        <input type="text" class="forms-control" name="tfNumExt" id="inputNumext">
+
+                        <button type="submit" name="accion" value="agregar" class="btn-agregar">Agregar</button>
+                        
+                        <a class="btn btn-secondary" href="/alumnos">Regresar</a>
+        
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

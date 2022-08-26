@@ -1,0 +1,95 @@
+*
+{
+  margin:  0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container-fluid 
+{
+  
+  background-color: #375b7f;
+}
+
+#session-box
+{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+#session-box>img
+{
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  margin-bottom: 0.7rem;
+  margin-left: 0.5rem;
+}
+
+h5
+{
+ color:#fff;    
+ font-size:1em;
+ font-weight: bolder;
+ margin-top:0.5rem;
+}
+
+h1
+{
+ color:#fff;    
+ font-size:1em;
+ font-weight: bolder;
+ margin-top:0.5rem;
+}
+
+#session-box div small input
+{
+ display: inline-block;
+ color: #fff;
+}
+
+#session-box input
+{
+  padding: 0;
+  border: none; 
+  background: none;
+}
+
+h4
+{
+ color:#fff;    
+ font-weight: bolder;
+}
+.formulario
+{
+    width: 400px;
+    padding: 30px;
+    margin: auto;
+    margin-top: 35px;
+    border-radius: 6px;
+    font-family: Helvetica;
+    color: white;
+    background-color: #0b1e30;
+}
+
+.forms-control
+{
+    width: 100%;
+    background: #20303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f531f;
+    color: white;
+}
+
+.btn-actualizar
+{
+   width: 30%;
+   background:#0e4c75;
+   border: none;
+   padding: 8px;
+   color: white;
+   margin-right: 1rem;
+   border-radius: 4px;
+}

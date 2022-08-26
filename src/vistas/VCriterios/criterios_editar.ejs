@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Editar Criterios</title>
+    <link rel="stylesheet" href="../../cssgeneral/bootstrap.min.css">
+    <link rel="stylesheet" href="../../csscriterios/criterios_editar.css"> 
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <nav class="navbar  navbar-expand-lg navbar-dark mb-2">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="../../imgs/uni.png" width="35" height="35" class="mx-2">
+                        Actualización de Criterios
+                    </a>
+
+                    <div class="collapse navbar-collapse" id="navbarColor01">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Home
+                                    <span class="visually-hidden">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Alumnos">Alumnos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Actividades">Actividades</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Criterios">Criterios</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="session-box">
+                        <img src="../../imgs/user.svg" width="40px" height="40px" alt="">
+                        <% if(usuario) { %>
+
+                        <div>
+                            <h5>Usuario:<%= usuario%></h5>
+                            <% } %>
+                                <form action="/session/cerrar" method="post">
+                                    <small><input type="submit" value="Cerrar Sesión"></small>
+
+                                </form>
+                        </div>
+                    </div>
+               </div>
+            </nav>
+        </div>
+    </div>
+
+    <h4 class="text-center m-3">Edita un registro</h4>
+    <div class="formulario">
+        <div class="row">
+            <div class="col col">
+                <form action="/criterios/actualizar/<%=reg[0].Id_TipoActv%>" method="post">
+                        <label for="inputId">Id</label>
+                        <input type="number"   class="forms-control" name="tfIdTipoActv" value="<%=reg[0].Id_TipoActv%>" id="inputId"> 
+                        <label for="inputTipoActv">Tipo de Actividad</label>
+                        <input type="text"   class="forms-control"   name="tfTipoActv"   value="<%=reg[0].Tipo_Actv%>" id="inputTipoActv" > 
+                        <label for="inputPorcentaje">Porcentaje</label>
+                        <input type="number"   class="forms-control" name="tfPorcentaje" value="<%=reg[0].Porcentaje%>" id="inputPorcentaje" >
+
+
+                        <button type="submit" name="accion" value="Actualizar" class="btn-actualizar">Actualizar</button>
+                        
+                        <a class="btn btn-secondary" href="/criterios">Regresar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

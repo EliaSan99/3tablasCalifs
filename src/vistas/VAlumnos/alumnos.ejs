@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Alumnos</title>
+    <link rel="stylesheet" href="../../cssgeneral/bootstrap.min.css">
+    <link rel="stylesheet" href="../../cssalumnos/alumnos.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <nav class="navbar  navbar-expand-lg navbar-dark mb-2">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="../../imgs/uni.png" width="35" height="35" class="mx-2">
+                        Interfaz Alumnos
+                    </a>
+
+                    <div class="collapse navbar-collapse" id="navbarColor01">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Home
+                                    <span class="visually-hidden">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Alumnos">Alumnos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Actividades">Actividades</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Criterios">Criterios</a>
+                            </li>
+                        </ul>
+                    </div>
+                     <div id="session-box">
+                          <img src="../../imgs/user.svg" width="40px" height="40px" alt="">
+                          <% if(usuario) { %>
+
+                            <div>
+                                <h5>Usuario:<%= usuario%></h5>
+                                <% } %>
+                                    <form action="/session/cerrar" method="post">
+                                        <small><input type="submit" value="Cerrar Sesión"></small>
+
+                                    </form>
+                            </div>
+                      </div>
+               </div>
+          </nav>
+        </div>
+    </div>
+
+
+    <h4 class="text-center">Vista Alumnos</h4>
+    <h6 class="text-center">IMPORTANTE: Si desea eliminar un alumno que tiene actividades registradas el sistema No se lo permitira.</h6>
+
+    <div class="wrapper">
+        <p><a id="p1" class="btn btn-secondary" href="/alumnos/nuevo">Nuevo Registro</a></p>
+        <p><a id="p2" class="btn btn-secondary" href="/">Ir a vista principal</a></p>
+
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto m-1">
+                <table class="table table-bordered table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th>Matricula</th>
+                            <th>Nombre Completo</th>
+                            <th colspan="2">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<data.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <%=data[i].Matricula%>
+                                </td>
+                                <td>
+                                    <%=data[i].Nombre%>
+                                        <%=data[i].Paterno%>
+                                            <%=data[i].Materno%>
+                                </td>
+
+                                <td><a class="btn btn-warning" href="/alumnos/editar/<%=data[i].Matricula%>">Editar</a></td>
+                                <td><a class="btn btn-danger" href="/alumnos/eliminar/<%=data[i].Matricula%>">Eliminar</a></td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
